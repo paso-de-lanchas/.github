@@ -1,0 +1,44 @@
+name: Historia de usuario
+description: Funcionalidad vista desde un rol (pasajero, chofer, administrador o superadministrador)
+title: "[Historia] "
+labels: ["tipo: historia"]
+body:
+  - type: dropdown
+    id: rol
+    attributes:
+      label: Rol
+      options:
+        - Pasajero
+        - Chofer
+        - Administrador
+        - Superadministrador
+    validations:
+      required: true
+  - type: textarea
+    id: historia
+    attributes:
+      label: Historia
+      description: "Como <rol> quiero <acción> para <beneficio>."
+      placeholder: Como administrador quiero escanear el QR del pasajero para cobrarle y asignarle lugar.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: "Dado / Cuando / Entonces, uno por línea."
+      placeholder: |
+        - Dado un QR válido y saldo suficiente, cuando el admin lo escanea, entonces se cobra y se asigna el siguiente lugar.
+        - Dado que la salida está llena, cuando se escanea un QR, entonces no se cobra y se muestra "Sin cupo".
+    validations:
+      required: true
+  - type: input
+    id: requisitos
+    attributes:
+      label: Requisitos funcionales relacionados
+      placeholder: RF-043, RF-045, RF-046
+  - type: input
+    id: prototipo
+    attributes:
+      label: Pantalla del prototipo
+      placeholder: Enlace o nombre de la pantalla en el prototipo
