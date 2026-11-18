@@ -6,7 +6,8 @@ Cómo trabajamos en GitHub, paso a paso. Aplica a todos los repositorios de la o
 
 1. Activa la **verificación en dos pasos** en tu cuenta de GitHub (*Settings → Password and authentication*).
 2. Acepta la invitación a la organización (te llega por correo o en github.com/paso-de-lanchas).
-3. Instala **Git** (git-scm.com), **Node.js LTS** (nodejs.org) y **VS Code**.
+3. Instala **Git**, **Node.js 24**, **Docker Desktop** y **VS Code** siguiendo la guía paso a paso
+   [ENTORNO_DESARROLLO.md](https://github.com/paso-de-lanchas/paso-de-lanchas-app/blob/develop/docs/ENTORNO_DESARROLLO.md).
 4. Configura Git con tu nombre y el correo de tu cuenta de GitHub:
 
    ```bash
@@ -57,7 +58,13 @@ Nombres en minúsculas, con guiones, sin acentos ni ñ: `feature/23-escaneo-qr-a
    git commit -m "feat(boarding): validar código TOTP del pasajero"
    ```
 
-4. **Sube tu rama** al menos una vez al día:
+4. **Antes de subir**, comprueba que todo pasa (lint, tipos y pruebas):
+
+   ```bash
+   npm run check
+   ```
+
+   **Sube tu rama** al menos una vez al día:
 
    ```bash
    git push -u origin feature/23-escaneo-qr-admin   # la primera vez
@@ -81,7 +88,9 @@ Nombres en minúsculas, con guiones, sin acentos ni ñ: `feature/23-escaneo-qr-a
    - Pide revisión a alguien **de otra área**.
 7. **Atiende la revisión**: haz los cambios en la misma rama y vuelve a hacer `git push`; el PR se actualiza solo.
    Responde cada comentario y márcalo como resuelto.
-8. **Fusiona** con **Squash and merge** cuando tengas la aprobación y todo esté en verde. La rama se borra sola.
+8. **Fusiona** con **Squash and merge** cuando la revisión de otra área esté atendida y la revisión automática (CI)
+   esté en verde. Por ahora GitHub no exige aprobación en `develop`, pero **nadie fusiona sin al menos un comentario
+   de revisión**. La rama se borra sola.
 9. **Limpia tu computadora**:
 
    ```bash
