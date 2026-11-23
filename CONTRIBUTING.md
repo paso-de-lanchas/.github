@@ -23,6 +23,25 @@ Cómo trabajamos en GitHub, paso a paso. Aplica a todos los repositorios de la o
    cd paso-de-lanchas-app
    ```
 
+   **¿Ya habías clonado tu *fork*?** Revisa a dónde apunta `origin`:
+
+   ```bash
+   git remote -v
+   ```
+
+   Si dice `github.com/<tu-usuario>/paso-de-lanchas-app`, apúntalo al repo de la organización y guarda tu fork con el
+   nombre `fork` (solo para terminar los PRs que ya abriste desde ahí):
+
+   ```bash
+   git remote set-url origin https://github.com/paso-de-lanchas/paso-de-lanchas-app.git
+   git remote add fork https://github.com/<tu-usuario>/paso-de-lanchas-app.git
+   git fetch origin
+   ```
+
+   Desde ese momento `git merge origin/develop` trae el `develop` real del equipo (el de tu fork se queda atrasado y
+   causa conflictos). Las ramas **nuevas** se suben con `git push -u origin <rama>`. Un PR que **ya** abriste desde tu
+   fork se actualiza con `git push fork <rama>`; no hace falta cerrarlo ni abrir otro.
+
 ## 2. Ramas
 
 | Rama | Para qué | Sale de | Regresa a |
