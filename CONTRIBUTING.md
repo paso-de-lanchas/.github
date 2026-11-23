@@ -40,6 +40,9 @@ Nombres en minúsculas, con guiones, sin acentos ni ñ: `feature/23-escaneo-qr-a
 
 **Nadie sube directo a `main` ni a `develop`**: GitHub lo bloquea. Todo entra por pull request.
 
+Todos los integrantes están en el equipo `desarrollo`, con permiso para subir **sus ramas** al repo de la organización
+(no hace falta *fork*). Si `git push` responde `403` o `Permission denied`, avisa a Omar: tu cuenta aún no está en el equipo.
+
 ## 3. El ciclo de cada historia
 
 1. **Toma el issue** en el tablero: asígnatelo y muévelo a *En progreso* (máximo 2 por persona).
@@ -85,12 +88,16 @@ Nombres en minúsculas, con guiones, sin acentos ni ñ: `feature/23-escaneo-qr-a
 6. **Abre el pull request** en GitHub (botón *Compare & pull request*):
    - Base: **develop**. Título como commit: `feat(boarding): escanear QR, cobrar y asignar lugar (#23)`.
    - Llena la plantilla y escribe `Closes #23` para que el issue se cierre solo.
-   - Pide revisión a alguien **de otra área**.
+   - Pide revisión a alguien **de otra área** y a **Omar** (GitHub lo agrega solo como responsable del código).
 7. **Atiende la revisión**: haz los cambios en la misma rama y vuelve a hacer `git push`; el PR se actualiza solo.
    Responde cada comentario y márcalo como resuelto.
-8. **Fusiona** con **Squash and merge** cuando la revisión de otra área esté atendida y la revisión automática (CI)
-   esté en verde. Por ahora GitHub no exige aprobación en `develop`, pero **nadie fusiona sin al menos un comentario
-   de revisión**. La rama se borra sola.
+8. **Omar aprueba y fusiona** con **Squash and merge**, cuando el PR tiene al menos un comentario de revisión de otra
+   área y está atendido. Además, GitHub no deja fusionar a `develop` hasta que:
+   - la revisión automática (CI) esté en verde;
+   - **Omar haya aprobado** el PR. La aprobación de un compañero no basta, y si subes cambios después de que Omar aprobó,
+     tiene que volver a aprobar.
+
+   Cuando tu PR esté listo, avísale a Omar. La rama se borra sola al fusionar.
 9. **Limpia tu computadora**:
 
    ```bash
